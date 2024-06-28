@@ -1,3 +1,43 @@
 ```{python}
-1 + 1
+!pip install pandas
+```
+
+```{python}
+!pip install openpyxl
+```
+
+# Ejemplo de pandas
+
+```{python}
+import pandas as pd
+```
+
+```{python}
+df  = pd.DataFrame({
+    "Nombres": ["Kim", "Angie", "María", "Luis"]
+})
+df
+```
+
+```{python}
+df = pd.read_excel('compendio_0.xlsx', sheet_name='Datos Tidy')
+df
+```
+
+```{python}
+mask = df['Variable'] == 'Viviendas afectadas por eventos naturales'
+viviendas_afectadas = df[mask]
+```
+
+```{python}
+!pip install plotly
+```
+
+```{python}
+import plotly.express as px
+```
+
+```{python}
+fig = px.box(viviendas_afectadas, y='Valor')
+fig.show()
 ```
